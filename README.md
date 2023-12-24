@@ -20,9 +20,7 @@ hidden_dim = None  # LSTM hidden layer size
 num_layers = None  # Number of LSTM layers
 num_epoch = None  # Maximum training epochs
 learning_rate = None  # Learning rate for training
-```
-
-   - Initialize the model and other necessary variables.
+```   - Initialize the model and other necessary variables.
 
 4. **Define Perplexity:**
    - Define perplexity for analysis.
