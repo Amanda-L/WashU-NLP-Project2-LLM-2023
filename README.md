@@ -1,4 +1,4 @@
-# WashU-NLP-Project2-LLM-2023
+# WashU-NLP-Project2-LSTM-2023
 
 The assignment asked to train an LSTM language model on the Wikitext training corpus, monitor perplexity, and evaluate the model's performance on development and test data.
 
