@@ -1,4 +1,4 @@
-# WashU-NLP-Project2-LSTM-2023
+# WashU-NLP-Project2-LSTM
 
 The assignment asked to train an LSTM language model on the Wikitext training corpus, monitor perplexity, and evaluate the model's performance on development and test data.
 
@@ -7,18 +7,16 @@ The assignment asked to train an LSTM language model on the Wikitext training co
    - Determine the distribution of sentence lengths in the Wikitext training corpus.
    - Decide on the maximum length (MAXLEN) for training RNN models based on the distribution.
 ```python
-MAXLEN =  268 # 628 is running forever and the performance is not good, so I changed it to 256 followed by the comments on Piazza
+MAXLEN =  268 # 628 was taking forever to run and the performance was not good, so I changed it to 268 for lower perplexity.
 batch_size = 32 # For training
 ``` 
 
-2. **Load Data:**
-   - Load the data using the provided code.
 
-3. **Create LSTM Model:**
+2. **Create LSTM Model:**
    - Implement an LSTM model using PyTorch.
    - Initialize the model and other necessary variables.
 
-```python
+```
 embed_dim = 128 # Embedding layer size
 hidden_dim = 64 # (LSTM) hidden layer size
 num_layers= 2 # Number of LSTM layers
@@ -29,8 +27,7 @@ learning_rate = 0.0001 # For training
    - Define perplexity for analysis.
 
 5. **Training the Model:**
-   - Set up the training loop.
-   - Train the model using backpropagation through time.
+   - Train the model using backpropagation.
    - Detach LSTM states at the end of each epoch.
    - Key steps:
       1. Get the data and run the model.
@@ -49,13 +46,14 @@ Then, the LSTM layer takes the 128-dimensional input from the embedding layer an
 
 Last followed by the Linear layer. It takes the output of the LSTM layer (which has 64 dimensions) and applies a linear transformation to produce an output of size 20598. This size corresponds to the number of possible output tokens, which is the same as the number of unique tokens in the vocabulary.
 
-For the hyperparameters, I set the maxlen as 256, I initially tried 658, which is the maximum length but it ran forever with terrible perplexity. So I tried the mean, but the perplexity is still terrible. so I followed the suggestion on the piazza and changed it to 256, and the perplexity became normal. These are the examples of the results:
-
-maxlen: 256, epoch: 10, perplexity:17 -> 9.7
-maxlen: 256, epoch: 5, perplexity: 16 -> 10
+For the hyperparameters, I set the maxlen as 268, I initially tried 658, which is the maximum length but it ran forever with terrible perplexity. So I tried the mean, but the perplexity is still terrible. so I followed the suggestion on the piazza and changed it to 268, and the perplexity became normal. These are the examples of the results:
+```
+maxlen: 268, epoch: 10, perplexity:17 -> 9.7
+maxlen: 268, epoch: 5, perplexity: 16 -> 10
 maxlen: 73, epoch:5, perplexity: 332 -> 179
-
+```
 The rest of the hyperparameters are:
+```
 embed_dim = 128
 
 hidden_dim = 64
@@ -65,12 +63,13 @@ num_layers= 2
 num_epoch = 5 # The maximum training epochs, more epochs are not improving
 
 learning_rate = 0.0001
+```
 
 The experimental procedure involves data processing by removing punctuations and removing "<unk>" , followed by loading data and connecting with lstm (2 layers). We keep track of the perplexity of the validation data and also the loss during training to optimize the model.
 
 
 **Results**
 
-The results of validation data on perplexity showed that the perplexity is consistently improving. The length of the text affects a lot of how the perplexity was initialed. i.e. 72 max length resulted in 332 perplexity initially. And changing to 256 resulted in more reasonable numbers.
+The results of validation data on perplexity showed that the perplexity is consistently improving. The length of the text affects a lot of how the perplexity was initialed. i.e. 72 max length resulted in 332 perplexity initially. And changing to 268 resulted in more reasonable numbers.
 
 
