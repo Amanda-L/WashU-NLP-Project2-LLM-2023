@@ -26,12 +26,12 @@ learning_rate = 0.0001 # For training
 4. **Define Perplexity:**
    - PPL = exp(-1/N * Σ(log P(x_i)))
    - To compute the perplexity based on losses:
-      - Iterate through the data.
-      - For each input sequence, compute the model's predicted logits.
-      - Calculate the loss using the predicted logits and the ground truth labels.
-      - Keep track of the total loss.
-      - After processing all sequences, compute the average loss.
-      - Use the average loss to calculate the perplexity.
+      1. Iterate through the data.
+      2. For each input sequence, compute the model's predicted logits.
+      3. Calculate the loss using the predicted logits and the ground truth labels.
+      4. Keep track of the total loss.
+      5. After processing all sequences, compute the average loss.
+      6. Use the average loss to calculate the perplexity.
 
 5. **Training the Model:**
    - Train the model using backpropagation.
