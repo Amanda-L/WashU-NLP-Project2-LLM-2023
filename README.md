@@ -16,7 +16,7 @@ batch_size = 32 # For training
    - Implement an LSTM model using PyTorch.
    - Initialize the model and other necessary variables.
 
-```
+```python
 embed_dim = 128 # Embedding layer size
 hidden_dim = 64 # (LSTM) hidden layer size
 num_layers= 2 # Number of LSTM layers
